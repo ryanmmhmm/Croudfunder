@@ -30,7 +30,7 @@ Bitmaker Crowdfunder group project.
 - Project Page updates once a user submits a pledge (AJAX)
 - Write a comment on a project that I have backed (AJAX)
 - Contribute to a project multiple times
-- Recieve an Award based on how much I pledge
+- Pledge for a Reward based on options that the Owner provides
 - When viewing a project it should be clear if I have already backed the project previously
 
 
@@ -48,12 +48,12 @@ Bitmaker Crowdfunder group project.
   - Project Desciption
   - Project Pictures
   - Project Picture
-  - Project Pitch section
-- set Rewards for Pledge ranges
-- see how many Backers have Pledged for each reward
+  - Project Pitch section (WYSIWYG Editor)
+- set Rewards for Pledge ranges (Cocoon gem)
 - have limits on how many Backers can pledge on a specific Reward
-- see the total ammount of money raised as of right now
-- add category tags to my project that are searchable
+- see how many Backers have Pledged for each reward
+- see the total ammount of money raised as of right now on a specific Project
+- add category tags to my project so that are searchable
 
 - Share a link to the project to others
 - Share the project on social media
