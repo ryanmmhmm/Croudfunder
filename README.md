@@ -46,7 +46,6 @@ Bitmaker Crowdfunder group project.
   - Set rewards for different pledge levels
   - Show a % completion of current project funding
   - Project Desciption
-  - Project Pictures
   - Project Picture
   - Project Pitch section (WYSIWYG Editor)
 - set Rewards for Pledge ranges (Cocoon gem)
@@ -58,4 +57,3 @@ Bitmaker Crowdfunder group project.
 - Share a link to the project to others
 - Share the project on social media
 - See a countdown of how many days there are left before the project ends
--
