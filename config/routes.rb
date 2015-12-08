@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :projects
   resources :rewards
+=======
+
+  resources :backers
+>>>>>>> 1e6d03b453751404cdb2b6ef290bb56b577c2083
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
