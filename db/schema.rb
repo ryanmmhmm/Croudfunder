@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208002209) do
+ActiveRecord::Schema.define(version: 20151208175818) do
 
   create_table "backers", force: :cascade do |t|
     t.text     "first_name"
@@ -47,5 +47,19 @@ ActiveRecord::Schema.define(version: 20151208002209) do
     t.datetime "updated_at",  null: false
     t.integer  "quantity"
   end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                           null: false
+    t.string   "crypted_password"
+    t.string   "salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_token_expires_at"
+    t.datetime "reset_password_email_sent_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token"
 
 end
