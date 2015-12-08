@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :projects
     resources :rewards
 
-  resources :users, only: [:new, :destroy, :show]
+  resources :users
+  #, only: [:new, :destroy, :show, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
