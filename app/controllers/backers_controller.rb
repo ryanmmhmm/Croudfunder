@@ -18,7 +18,7 @@ class BackersController < ApplicationController
 	def update
 		@backer = Backer.find(params[:id])
 		if @backer.update_attributes(backer_params)
-			redirect_to @backer
+			redirect_to backers_path
 		else
 			render :edit
 		end
