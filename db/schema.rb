@@ -11,22 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208210250) do
-
-  create_table "backers", force: :cascade do |t|
-    t.text     "first_name"
-    t.text     "last_name"
-    t.text     "email"
-    t.text     "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "pledges", force: :cascade do |t|
-    t.integer  "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20151208234107) do
 
   create_table "projects", force: :cascade do |t|
     t.text     "title"
