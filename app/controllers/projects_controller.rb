@@ -1,7 +1,12 @@
 class ProjectsController < ApplicationController
 
+	load_before :load_user
+
 	def index
-		@products = if params[:title]
+		@projects = Project.all.order(start_date: :asc)
+		@categories = ['Art','Comics', 'Crafts', 'Dance', 'Design', 'Fashion', 'Film & Video', 'Food', 'Games', 'Journalism', 'Music', 'Photography', 'Publishing', 'Technology', 'Theatre']
+
+		@projects = if params[:title]
 			Project.where("LOWER(title) LIKE LOWER (?)", "%#{params[:title]}%")
 		else
 			Project.all.order(start_date: :asc)
@@ -22,8 +27,9 @@ class ProjectsController < ApplicationController
 
 	def create
 		@project = Project.new(project_params)
+		@user.owned_projects << @project
 
-		if @project.save
+		if current_user && @project.save
 			redirect_to projects_url
 		else
 			render :new
@@ -50,5 +56,9 @@ class ProjectsController < ApplicationController
 	private
 	def project_params
 		params.require(:project).permit(:title, :start_date, :end_date, :funding_target, :description, rewards_attributes: [:amount, :description, :_destroy])
+	end
+
+	def load_user
+		@user = current_user if current_user?
 	end
 end

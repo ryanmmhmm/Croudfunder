@@ -3,7 +3,9 @@
 <h2>Explore an innovative creative universe</h2>
 	<p>15 diverse catagories. Thousands of amazing projects.</p>
 
- <% catagories = ['Art','Comics', 'Crafts', 'Dance', 'Design', 'Fashion', 'Film & Video', 'Food', 'Games', 'Journalism', 'Music', 'Photography', 'Publishing', 'Technology', 'Theatre'] %>
- <%= catagories.each do |i| %>
- 	<button><%= link_to i, projects_path %></button>
-<% end %>
+<div class="discover-categories">
+   <% @categories.each do |i| %>
+    <p><%= "#{i}" %></p>
+   	<button><%= link_to i, projects_path %></button>
+  <% end %>
+</div>
