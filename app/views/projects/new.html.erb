@@ -16,7 +16,8 @@
 		<%= f.datetime_select :start_date %>
 	</div>
 	<div class="field">
-	<%= f.select :catagory, ['Art','Comics', 'Crafts', 'Dance', 'Design', 'Fashion', 'Film & Video', 'Food', 'Games', 'Journalism', 'Music', 'Photography', 'Publishing', 'Technology', 'Theatre'] %>
+	<%= f.label :category %><br />
+	<%= f.select :category, ['Art','Comics', 'Crafts', 'Dance', 'Design', 'Fashion', 'Film & Video', 'Food', 'Games', 'Journalism', 'Music', 'Photography', 'Publishing', 'Technology', 'Theatre'], prompt: 'Select one' %>
 	</div>
 	<div class="field">
 		<%= f.label :end_date %><br />
@@ -44,8 +45,8 @@
 
 		<div class="links">
 			<%= link_to_add_association 'Add Reward', f, :rewards %>
-		</div>	
-	
+		</div>
+
 </div>
 
 
