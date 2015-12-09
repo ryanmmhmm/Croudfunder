@@ -7,7 +7,6 @@ class RewardsController < ApplicationController
   end
 
 	def show
-    @project = Project.find(params[:project_id])
     @reward = Reward.find(params[:id])
   end
 
