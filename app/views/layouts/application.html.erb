@@ -8,6 +8,9 @@
 </head>
 <body>
 <header>
+	<%= link_to 'CROWDFUNDER', projects_path %>
+	<%= link_to 'Discover', projects_path %>
+	<%= link_to 'Start a project', new_project_path %>
 	<% if current_user %>
 		<%= link_to 'Sign Out', user_session_path(current_user), method: :delete %>
 		<%= link_to 'Profile', user_path(current_user) %>
