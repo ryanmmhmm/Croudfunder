@@ -1,7 +1,11 @@
 class ProjectsController < ApplicationController
 
 	def index
-		@projects = Project.all.order(start_date: :asc)
+		@products = if params[:title]
+			Project.where("LOWER(title) LIKE LOWER (?)", "%#{params[:title]}%")
+		else
+			Project.all.order(start_date: :asc)
+		end
 	end
 
 	def show
@@ -9,7 +13,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def new
-		@project = Project.new	
+		@project = Project.new
 	end
 
 	def edit
