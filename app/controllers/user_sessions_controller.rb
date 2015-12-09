@@ -19,4 +19,5 @@ skip_before_action :require_login, except: [:destroy]
     logout
     redirect_to(:projects, notice: 'Logged out!')
   end
+
 end

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :projects
     resources :rewards
 
+  root 'projects#index'
+
   resources :users, only: [:new, :destroy, :show, :create]
 
   resources :user_sessions, only: [:new, :create, :destroy]
