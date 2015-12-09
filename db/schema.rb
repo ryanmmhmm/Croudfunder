@@ -13,6 +13,20 @@
 
 ActiveRecord::Schema.define(version: 20151209022953) do
 
+  create_table "backers", force: :cascade do |t|
+    t.text     "first_name"
+    t.text     "last_name"
+    t.text     "email"
+    t.text     "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pledges", force: :cascade do |t|
+    t.integer  "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
   create_table "projects", force: :cascade do |t|
     t.text     "title"
     t.integer  "funding_goal"
@@ -33,6 +47,7 @@ ActiveRecord::Schema.define(version: 20151209022953) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "quantity"
+    t.integer  "project_id"
   end
 
   create_table "users", force: :cascade do |t|
