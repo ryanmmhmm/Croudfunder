@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :projects
+  resources :projects do
     resources :rewards
+  end
 
   root 'projects#index'
 
