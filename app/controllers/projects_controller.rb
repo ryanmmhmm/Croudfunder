@@ -55,7 +55,7 @@ skip_before_action :require_login, only: [:index, :show]
 
 	private
 	def project_params
-		params.require(:project).permit(:title, :start_date, :end_date, :funding_goal, :description, rewards: [:amount, :description, :_destroy])
+		params.require(:project).permit(:title, :start_date, :end_date, :funding_goal, :description, :picutre_url, rewards: [:amount, :description, :_destroy])
 	end
 
 	def load_user
