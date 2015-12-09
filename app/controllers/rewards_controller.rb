@@ -1,10 +1,13 @@
 class RewardsController < ApplicationController
+  skip_before_action :require_login, only: [:index, :show]
+  before_action :load_project
 
   def index
     @rewards = Reward.all
   end
 
 	def show
+    @project = Project.find(params[:project_id])
     @reward = Reward.find(params[:id])
   end
 
@@ -40,6 +43,10 @@ class RewardsController < ApplicationController
   private
   def reward_params
     params.require(:rewards).permit(:title, :desciption, :amount, :quantity, :project_id)
+  end
+
+  def load_project
+    @project = Project.find(params[:project_id])
   end
 end
 
