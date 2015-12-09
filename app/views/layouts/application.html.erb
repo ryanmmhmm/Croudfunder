@@ -18,6 +18,7 @@
   	<% end %>
 
   	<% if current_user %>
+      <span>User: <b><em><%= current_user.email %></em></b></span>
   		<%= link_to 'Profile', user_path(current_user) %>
       <%= link_to 'Sign Out', :logout, method: :post %>
   	<% else %>
