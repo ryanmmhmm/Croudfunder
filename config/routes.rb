@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :projects
     resources :rewards
 
-  resources :users, only: [:new, :destroy, :show, :create]
+  resources :users, only: [:new, :destroy, :show, :create, :edit, :update]
 
   resources :user_sessions, only: [:new, :create, :destroy]
 

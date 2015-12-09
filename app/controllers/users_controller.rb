@@ -25,6 +25,19 @@ skip_before_action :require_login, only: [:new, :create]
     redirect_to projects_path
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to @user
+    else
+      render :edit, notice: 'Invalid input, please try agian.'
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
   private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
