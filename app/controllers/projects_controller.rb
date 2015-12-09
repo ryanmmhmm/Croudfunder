@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-	load_before :load_user
+	# load_before :load_user
 
 	def index
 		@projects = Project.all.order(start_date: :asc)
