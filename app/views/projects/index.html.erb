@@ -1,1 +1,11 @@
 <h1>This is the Index for Projects</h1>
+
+<h2>Explore an innovative creative universe</h2>
+	<p>15 diverse catagories. Thousands of amazing projects.</p>
+
+<div class="discover-categories">
+   <% @categories.each do |i| %>
+    <p><%= "#{i}" %></p>
+   	<button><%= link_to i, projects_path %></button>
+  <% end %>
+</div>
