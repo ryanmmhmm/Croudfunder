@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209145757) do
+ActiveRecord::Schema.define(version: 20151209163225) do
 
   create_table "projects", force: :cascade do |t|
-    t.text     "title"
+    t.string   "title"
     t.integer  "funding_goal"
     t.datetime "start_date"
     t.datetime "end_date"
     t.text     "description"
-    t.text     "picture_url"
+    t.string   "picture_url"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "owner_id"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20151209145757) do
   end
 
   create_table "rewards", force: :cascade do |t|
-    t.text     "title"
+    t.string   "title"
     t.text     "description"
     t.integer  "amount"
     t.datetime "created_at",  null: false
