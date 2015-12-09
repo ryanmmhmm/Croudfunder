@@ -27,10 +27,12 @@ skip_before_action :require_login, only: [:index, :show, :login]
 
 	def create
 		@project = Project.new(project_params)
-		# @user.owned_projects << @project
+		# current_user.owned_projects << @project
 
-		if current_user && @project.save
-			redirect_to projects_url
+		flash.now[:alert] = 'Something went wrong.' if Project.create.errors.any?
+
+		if @project.save
+			redirect_to :root, notice: "Thank you for creating the new project #{@project.title}."
 		else
 			render :new
 		end
@@ -55,7 +57,7 @@ skip_before_action :require_login, only: [:index, :show, :login]
 
 	private
 	def project_params
-		params.require(:project).permit(:title, :start_date, :end_date, :funding_goal, :category, :description, :picutre_url, rewards: [:amount, :description, :_destroy])
+		params.require(:project).permit(:title, :start_date, :end_date, :funding_goal, :category, :description, :picture_url, rewards_attributes: [:amount, :description, :_destroy])
 	end
 
   def not_authenticated
