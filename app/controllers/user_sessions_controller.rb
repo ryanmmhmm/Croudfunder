@@ -1,4 +1,7 @@
 class UserSessionsController < ApplicationController
+
+before_action :require_login, except: [:destroy]
+
   def new
     @session = User.new
   end

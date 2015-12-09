@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-	# load_before :load_user
+skip_before_action :require_login, only: [:index, :show]
 
 	def index
 		@projects = Project.all.order(start_date: :asc)
