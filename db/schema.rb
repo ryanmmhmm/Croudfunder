@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20151209010321) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "catagory"
+    t.integer  "owner_id"
   end
 
   create_table "rewards", force: :cascade do |t|
