@@ -1,3 +1,59 @@
-<h1>New Project</h1>
 
-<%= f.select :catagory, ['Art','Comics', 'Crafts', 'Dance', 'Design', 'Fashion', 'Film & Video', 'Food', 'Games', 'Journalism', 'Music', 'Photography', 'Publishing', 'Technology', 'Theatre']
+
+
+
+
+<h1>New Projects</h1>
+
+<%= form_for(@project) do |f| %>
+
+	<div class="field">
+		<%= f.label :title %><br />
+		<%= f.text_field :title %>
+	</div>
+	<div class="field">
+		<%= f.label :start_date %><br />
+		<%= f.datetime_select :start_date %>
+	</div>
+	<div class="field">
+	<%= f.label :category %><br />
+	<%= f.select :category, ['Art','Comics', 'Crafts', 'Dance', 'Design', 'Fashion', 'Film & Video', 'Food', 'Games', 'Journalism', 'Music', 'Photography', 'Publishing', 'Technology', 'Theatre'], prompt: 'Select one' %>
+	</div>
+	<div class="field">
+		<%= f.label :end_date %><br />
+		<%= f.datetime_select :end_date %>
+	</div>
+	<div class="field">
+		<%= f.label :funding_goal %><br />
+		<%= f.number_field :funding_goal %>
+	</div>
+
+	<div class="field">
+		<%= f.label :description %><br />
+		<%= f.text_field :description %>
+	</div>
+
+<h2>Rewards</h2>
+
+<div id="rewards">
+
+
+	<%= f.fields_for :rewards do |reward| %>
+		<%= render 'reward_fields', f: reward %>
+
+		<% end %>
+
+		<div class="links">
+			<%= link_to_add_association 'Add Reward', f, :rewards %>
+		</div>
+
+</div>
+
+
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+
+<% end %>
+
+<% link_to 'Back', projects_path %>
