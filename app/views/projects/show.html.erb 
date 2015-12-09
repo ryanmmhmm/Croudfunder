@@ -4,8 +4,15 @@
 <div>
 	<h2><%= @project.title %></h2>
 	<%= @project.picture_url %>
+
+</div>
 	<h3>About this project</h3>
 	<%= @project.description %>
+
+<div>
+
+
+
 </div>
 
 
