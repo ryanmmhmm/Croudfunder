@@ -58,7 +58,7 @@ skip_before_action :require_login, only: [:index, :show, :login]
 		params.require(:project).permit(:title, :start_date, :end_date, :funding_goal, :category, :description, :picutre_url, rewards: [:amount, :description, :_destroy])
 	end
 
-	def load_user
-		@user = current_user if current_user?
-	end
+  def not_authenticated
+    redirect_to :login, alert: 'Please login first.'
+  end
 end
