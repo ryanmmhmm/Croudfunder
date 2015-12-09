@@ -1,6 +1,7 @@
 <div>
 	<h2><%= @project.title %></h2>
-	<%= @project.picture_url %>
+<%=image_tag("#{@project.picture_url}") %>
+<img src="<%= @project.picture_url %>">
 
 </div>
 	<h3>About this project</h3>
@@ -15,4 +16,6 @@
 
 
 
-<a href="https://www.facebook.com/sharer/sharer.php?u=SHAREMESSAGE" title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=SHAREMESSAGE" title="Share on Facebook" target="http://localhost:3000/projects/" + "#{project_id}" class="btn btn-facebook"><i class="fa fa-facebook"></i> Share on facebook</a>
+
+<%= link_to 'Edit Project', edit_project_path(@project) %>
