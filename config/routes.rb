@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'pledges/show'
+
+  get 'pledges/create'
+
+  get 'pledges/new'
+
+  get 'pledges/destroy'
+
   resources :projects do
     resources :rewards
   end
