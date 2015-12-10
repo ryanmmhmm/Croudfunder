@@ -3,14 +3,19 @@ class ProjectsController < ApplicationController
 skip_before_action :require_login, only: [:index, :show, :login]
 
 	def index
-		@projects = Project.all.order(start_date: :asc)
+
 		@categories = ['Art','Comics', 'Crafts', 'Dance', 'Design', 'Fashion', 'Film & Video', 'Food', 'Games', 'Journalism', 'Music', 'Photography', 'Publishing', 'Technology', 'Theatre']
 
-		@projects = if params[:title]
-			Project.where("LOWER(title) LIKE LOWER (?)", "%#{params[:title]}%")
+		if params[:title]
+			@projects = Project.where("LOWER(title) LIKE LOWER (?)", "%#{params[:title]}%")
 		else
-			Project.all.order(start_date: :asc)
+			@projects = Project.all.order(start_date: :asc)
 		end
+
+		respond_to do |format|
+      format.html
+      format.js
+    end
 	end
 
 	def show

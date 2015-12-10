@@ -13,8 +13,8 @@
   	<%= link_to 'Discover', projects_path %>
   	<%= link_to 'Start a project', new_project_path %>
 
-  	<%= form_tag projects_path do %>
-  		<%= text_field_tag :search, params[:title], placeholder: "Search projects" %>
+  	<%= form_tag projects_path, method: :get do %>
+  		<%= text_field_tag :title, params[:title], id: "search", placeholder: "Search projects" %>
   	<% end %>
 
   	<% if current_user %>
