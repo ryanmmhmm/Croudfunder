@@ -1,16 +1,129 @@
+<!--/#title-->
 
-  <div>
-  	<div>
-  <%=image_tag("#{project.picture_url}") %>
-  	</div>
-  <p><%= link_to project.title, project_path(project) %><p>
-  <p><%= project.description %></p>
-  <div class='project-progress-bar'>
-  	<div class="project-percent-pledge">
-  	</div>
-  </div>
-  <p><%= project.funding_goal %></p>
-  <p><%= project.days_left_message %></p>
+    <section id="portfolio" class="container">
+        <ul class="portfolio-filter">
+            <li><a class="btn btn-default active" href="#" data-filter="*">All</a></li>
+            <li><a class="btn btn-default" href="#" data-filter=".bootstrap">Bootstrap</a></li>
+            <li><a class="btn btn-default" href="#" data-filter=".html">HTML</a></li>
+            <li><a class="btn btn-default" href="#" data-filter=".wordpress">Wordpress</a></li>
+        </ul><!--/#portfolio-filter-->
+
+<!-- project 1 -->
+        <ul class="portfolio-items col-3">
+            <li class="portfolio-item apps">
+                <div class="item-inner">
+                    <%=image_tag("#{project.picture_url}") %>
+                    <h5><%= link_to project.title, project_path(project) %></h5>
+                    <h6><%= project.description %></h6>
+
+                    <div class='project-progress-bar'></div>
+                    <div class="project-percent-pledge"></div>
+
+                    <h6><%= project.funding_goal %></h6>
+                    <h6><%= project.days_left_message %></h6>
+                    <div class="overlay">
+                        <a class="preview btn btn-danger" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                    </div>
+                </div>
+            </li>
+<!-- project 1 end -->
+
+<!-- project 2 -->
+            <li class="portfolio-item apps">
+                <div class="item-inner">
+                    <%=image_tag("#{project.picture_url}") %>
+                    <h5><%= link_to project.title, project_path(project) %></h5>
+                    <h6><%= project.description %></h6>
+
+                    <div class='project-progress-bar'></div>
+                    <div class="project-percent-pledge"></div>
+
+                    <h6><%= project.funding_goal %></h6>
+                    <h6><%= project.days_left_message %></h6>
+                    <div class="overlay">
+                        <a class="preview btn btn-danger" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                    </div>
+                </div>
+            </li>
+<!-- project 2 end -->
+
+<!-- project 3 -->
+            <li class="portfolio-item apps">
+                <div class="item-inner">
+                    <%=image_tag("#{project.picture_url}") %>
+                    <h5><%= link_to project.title, project_path(project) %></h5>
+                    <h6><%= project.description %></h6>
+
+                    <div class='project-progress-bar'></div>
+                    <div class="project-percent-pledge"></div>
+
+                    <h6><%= project.funding_goal %></h6>
+                    <h6><%= project.days_left_message %></h6>
+                    <div class="overlay">
+                        <a class="preview btn btn-danger" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                    </div>
+                </div>
+            </li>
+<!-- project 3 end -->
+
+<!-- project 3 -->
+            <li class="portfolio-item apps">
+                <div class="item-inner">
+                    <%=image_tag("#{project.picture_url}") %>
+                    <h5><%= link_to project.title, project_path(project) %></h5>
+                    <h6><%= project.description %></h6>
+
+                    <div class='project-progress-bar'></div>
+                    <div class="project-percent-pledge"></div>
+
+                    <h6><%= project.funding_goal %></h6>
+                    <h6><%= project.days_left_message %></h6>
+                    <div class="overlay">
+                        <a class="preview btn btn-danger" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                    </div>
+                </div>
+            </li>
+<!-- project 3 end -->
+
+<!-- project 3 -->
+            <li class="portfolio-item apps">
+                <div class="item-inner">
+                    <%=image_tag("#{project.picture_url}") %>
+                    <h5><%= link_to project.title, project_path(project) %></h5>
+                    <h6><%= project.description %></h6>
+
+                    <div class='project-progress-bar'></div>
+                    <div class="project-percent-pledge"></div>
+
+                    <h6><%= project.funding_goal %></h6>
+                    <h6><%= project.days_left_message %></h6>
+                    <div class="overlay">
+                        <a class="preview btn btn-danger" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                    </div>
+                </div>
+            </li>
+<!-- project 3 end -->
+
+<!-- project 3 -->
+            <li class="portfolio-item apps">
+                <div class="item-inner">
+                    <%=image_tag("#{project.picture_url}") %>
+                    <h5><%= link_to project.title, project_path(project) %></h5>
+                    <h6><%= project.description %></h6>
+
+                    <div class='project-progress-bar'></div>
+                    <div class="project-percent-pledge"></div>
+
+                    <h6><%= project.funding_goal %></h6>
+                    <h6><%= project.days_left_message %></h6>
+                    <div class="overlay">
+                        <a class="preview btn btn-danger" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                    </div>
+                </div>
+            </li>
+<!-- project 3 end -->
 
 
-  </div>
+          </ul>
+
+</section>
