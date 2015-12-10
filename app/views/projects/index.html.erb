@@ -103,7 +103,9 @@
         <li class="portfolio-item apps">
           <div class="discover-categories">
             <% @categories.each do |i| %>
-              <button style="display: block"><%= link_to i, projects_path %></button>
+            <ul>
+              <%= link_to i, projects_path %>
+              </ul>
             <% end %>
           </div>
         </li>
