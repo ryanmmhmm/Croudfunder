@@ -9,7 +9,7 @@ skip_before_action :require_login, only: [:new, :create]
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to(:projects, notice: "Hello #{@user.first_name}, welcome to Crowdfunder!")
+      redirect_to @user
     else
       render :new, notice: 'Invalid input, please try again.'
     end
@@ -27,7 +27,7 @@ skip_before_action :require_login, only: [:new, :create]
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
+    if @user.update_attributes(user_paramsg)
       redirect_to @user
     else
       render :edit, notice: 'Invalid input, please try agian.'
