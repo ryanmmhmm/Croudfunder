@@ -84,7 +84,14 @@
         <li class="portfolio-item apps">
             <div class="item-inner">
                 <%=image_tag("#{Project.find(1).picture_url}") %>
-                <h5><%= link_to Project.find(1).title, project_path(Project.find(1)) %></h5>
+
+                <div class="overlay">
+                    <a class="preview btn btn-danger" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="portfolio-item apps">
+           <h5><%= link_to Project.find(1).title, project_path(Project.find(1)) %></h5>
                 <h6><%= Project.find(1).description %></h6>
 
                 <div class='project-progress-bar'></div>
@@ -92,13 +99,6 @@
 
                 <h6><%= Project.find(1).funding_goal %></h6>
                 <h6><%= Project.find(1).days_left_message %></h6>
-                <div class="overlay">
-                    <a class="preview btn btn-danger" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
-                </div>
-            </div>
-        </li>
-        <li class="portfolio-item apps">
-
         </li>
         <li class="portfolio-item apps">
           <div class="discover-categories">
