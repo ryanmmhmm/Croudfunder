@@ -1,6 +1,9 @@
 
-  <button>
+  <div>
+  	<div>
   <%=image_tag("#{project.picture_url}") %>
+  	</div>
   <%= project.funding_goal %>
   <%= project.end_date %>
-  <%= link_to project.title, project_path(project) %></button>
+  <%= link_to project.title, project_path(project) %>
+  </div>
