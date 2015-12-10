@@ -19,6 +19,17 @@
 @import "bootstrap";
 
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,700,300);
+
+.green-button-view {
+  color: #1db95c;
+  border-color: #1db95c;
+}
+.green-button-view:hover {
+  color: #1db95c;
+  border-color: #1db95c;
+}
+
+
 .clearfix {
   *zoom: 1;
 }
@@ -29,6 +40,14 @@
   width: 70%;
   height: 10px;
 
+}
+
+.thumbnail-img {
+    display: block;
+    max-width: 20rem;
+    max-height: 20em;
+    width: auto;
+    height: auto;
 }
 
 
