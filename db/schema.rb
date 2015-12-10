@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20151210023344) do
     t.string   "picture_url"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.integer  "owner_id"
     t.string   "category"
+    t.integer  "owner_id"
   end
 
   create_table "rewards", force: :cascade do |t|
