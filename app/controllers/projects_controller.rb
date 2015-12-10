@@ -11,6 +11,9 @@ skip_before_action :require_login, only: [:index, :show, :login], notice: 'Pleas
 		else
 			@projects = Project.all.order(start_date: :asc)
 		end
+		@project1 = Project.random_project
+		@project2 = Project.random_project
+		@project3 = Project.random_project
 
 		respond_to do |format|
       format.html
