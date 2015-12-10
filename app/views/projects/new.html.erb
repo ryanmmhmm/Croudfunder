@@ -13,14 +13,16 @@
 	</div>
 
 	<div class="field">
+		<%= f.label :end_date %><br />
+		<%= f.date_select :end_date  %>
+	</div>
+
+	<div class="field">
   	<%= f.label :category %><br />
   	<%= f.select :category, ['Art','Comics', 'Crafts', 'Dance', 'Design', 'Fashion', 'Film & Video', 'Food', 'Games', 'Journalism', 'Music', 'Photography', 'Publishing', 'Technology', 'Theatre'], prompt: 'Select one' %>
 	</div>
 
-	<div class="field">
-		<%= f.label :end_date, "Campaign duration" %><br />
-		<%= f.date_select :end_date  %>
-	</div>
+
 
 	<div class="field">
 		<%= f.label :funding_goal %><br />

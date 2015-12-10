@@ -21,6 +21,7 @@ skip_before_action :require_login, only: [:index, :show, :login], notice: 'Pleas
 	def show
 		@project = Project.find(params[:id])
 		@rewards = @project.rewards
+		@project.days_left_message
 	end
 
 	def new
