@@ -7,16 +7,16 @@
                 <li data-target="#main-slider" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
-                <div class="item active" style="background-image: url(images/slider/bg1.jpg)">
+                <div class="item active" style="background-image: url(<%= @project1.picture_url%>)">
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="carousel-content center centered">
-                                    <h2 class="boxed animation animated-item-1">Crowdfund your project today!</h2>
+                                    <h2 class="boxed animation animated-item-1"><%= @project1.title %></h2>
                                     <br>
-                                    <p class="boxed animation animated-item-2">XXXXXXX.</p>
+                                    <p class="boxed animation animated-item-2"><%= @project1.description %></p>
                                     <br>
-                                    <a class="btn btn-md animation animated-item-3" href="#">Learn More</a>
+                                    <%= link_to 'Learn more', project_path(@project1), class: "btn btn-md animation animated-item-3" %>
                                 </div>
                             </div>
                         </div>
@@ -24,15 +24,15 @@
                 </div>
 
                 <!--/.item-->
-                <div class="item" style="background-image: url(images/slider/bg2.jpg)">
+                <div class="item" style="background-image: url(<%= @project2.picture_url %>)">
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="carousel-content center centered">
-                                    <h2 class="boxed animation animated-item-1">Clean, Crisp, Powerful and Responsive Web Design</h2>
-                                    <p class="boxed animation animated-item-2">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                                    <h2 class="boxed animation animated-item-1"><%= @project2.title %></h2>
+                                    <p class="boxed animation animated-item-2"><%= @project2.description %></p>
                                     <br>
-                                    <a class="btn btn-md animation animated-item-3" href="#">Learn More</a>
+                                    <%= link_to 'Learn more', project_path(@project2), class: "btn btn-md animation animated-item-3" %>
                                 </div>
                             </div>
                         </div>
@@ -40,15 +40,15 @@
                 </div>
 
                 <!--/.item-->
-                <div class="item" style="background-image: url(images/slider/bg2.jpg)">
+                <div class="item" style="background-image: url(<%= @project3.picture_url %>)">
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="carousel-content center centered">
-                                    <h2 class="boxed animation animated-item-1">Clean, Crisp, Powerful and Responsive Web Design</h2>
-                                    <p class="boxed animation animated-item-2">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                                    <h2 class="boxed animation animated-item-1"><%= @project3.title %></h2>
+                                    <p class="boxed animation animated-item-2"><%= @project3.description %></p>
                                     <br>
-                                    <a class="btn btn-md animation animated-item-3" href="#">Learn More</a>
+                                    <%= link_to 'Learn more', project_path(@project3), class: "btn btn-md animation animated-item-3" %>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
 
 <div class="discover-categories">
    <% @categories.each do |i| %>
-  
+
    	<button><%= link_to i, projects_path %></button>
   <% end %>
 </div>

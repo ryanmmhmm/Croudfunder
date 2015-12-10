@@ -26,4 +26,8 @@ class Project < ActiveRecord::Base
 		days_left ? (days_left.to_s + ' days left') : 'Campaign Ended'
 	end
 
+  def self.random_project
+    Project.order("RANDOM()").first
+  end
+
 end
