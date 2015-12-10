@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-skip_before_action :require_login, only: [:index, :show, :login]
+skip_before_action :require_login, only: [:index, :show, :login], notice: 'Please login to perform this action'
 
 	def index
 
@@ -20,6 +20,7 @@ skip_before_action :require_login, only: [:index, :show, :login]
 
 	def show
 		@project = Project.find(params[:id])
+		@rewards = @project.rewards
 	end
 
 	def new
@@ -32,12 +33,12 @@ skip_before_action :require_login, only: [:index, :show, :login]
 
 	def create
 		@project = Project.new(project_params)
-		# current_user.owned_projects << @project
+		@project.owner_id = session[:user_id]
 
 		flash.now[:alert] = 'Something went wrong.' if Project.create.errors.any?
 
 		if @project.save
-			redirect_to :root, notice: "Thank you for creating the new project #{@project.title}."
+			redirect_to :root, notice: "Thank you for creating the new project #{@project.title}, happy funding!"
 		else
 			render :new
 		end
@@ -62,7 +63,16 @@ skip_before_action :require_login, only: [:index, :show, :login]
 
 	private
 	def project_params
-		params.require(:project).permit(:title, :start_date, :end_date, :funding_goal, :category, :description, :picture_url, rewards_attributes: [:amount, :description, :_destroy])
+		params.require(:project).permit(
+			:title,
+			:start_date,
+			:end_date,
+			:funding_goal,
+			:category,
+			:description,
+			:picture_url,
+			:owner_id,
+			rewards_attributes: [:amount, :description, :quantity, :_destroy])
 	end
 
   def not_authenticated

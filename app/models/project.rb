@@ -2,7 +2,7 @@ class Project < ActiveRecord::Base
   has_one :owner
   has_many :rewards
 
-  # validates :owner_id, presence: true
+  validates :owner_id, presence: true
   validates :title, presence: true
   validates :funding_goal, presence: true
   validates :start_date, presence: true

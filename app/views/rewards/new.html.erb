@@ -1,0 +1,11 @@
+<h1>New Reward for <%= @project.title %></h1>
+
+<%= @project.description %>
+
+<%= form_for(@project) do |f| %>
+<p>This is happening first</p>
+  <%= f.fields_for :rewards do |reward| %>
+      <p>This is happening</p>
+        <%= render partial: 'projects/_reward_fields', f: reward %>
+  <% end %>
+<% end %>
