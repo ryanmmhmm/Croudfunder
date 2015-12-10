@@ -52,7 +52,7 @@
                 <div class="item-inner">
                     <%=image_tag("#{project.picture_url}") %>
                     <h5><%= link_to project.title, project_path(project) %></h5>
-                    <h6><%= project.description %></h6>
+                    <h6><%=     project.description %></h6>
 
                     <div class='project-progress-bar'></div>
                     <div class="project-percent-pledge"></div>
