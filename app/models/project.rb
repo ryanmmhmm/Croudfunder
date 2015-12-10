@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  has_one :owner
+  belongs_to :owner, class_name: User
   has_many :rewards
 
   validates :owner_id, presence: true

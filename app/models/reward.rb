@@ -1,4 +1,4 @@
 class Reward < ActiveRecord::Base
-  has_many :users
+  has_many :pledges
   belongs_to :project
 end
