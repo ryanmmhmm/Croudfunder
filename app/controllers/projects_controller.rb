@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-skip_before_action :require_login, only: [:index, :show, :login]
+skip_before_action :require_login, only: [:index, :show, :login], notice: 'Please login to perform this action'
 
 	def index
 		@projects = Project.all.order(start_date: :asc)
@@ -15,6 +15,7 @@ skip_before_action :require_login, only: [:index, :show, :login]
 
 	def show
 		@project = Project.find(params[:id])
+		@rewards = @project.rewards
 	end
 
 	def new

@@ -11,11 +11,11 @@ class RewardsController < ApplicationController
   end
 
   def new
-    @reward = Reward.new
+    @reward = @project.Reward.new
   end
 
   def create
-    @reward = Reward.new(reward_params)
+    @reward = @project.Reward.new(reward_params)
   end
 
   def edit

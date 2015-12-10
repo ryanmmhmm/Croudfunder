@@ -1,23 +1,24 @@
-<div>
+<div class="project">
 	<h2><%= @project.title %></h2>
-<%=image_tag("#{@project.picture_url}") %>
-<img src="<%= @project.picture_url %>">
+  <%=image_tag("#{@project.picture_url}") %>
+  <img src="<%= @project.picture_url %>">
 
+  <h3>About this project</h3>
+  <div class="project-info">
+    <%= @project.description %>
+    <%= @project.funding_goal %>
+    <%= @project.end_date %>
+  </div>
 </div>
-	<h3>About this project</h3>
-	<%= @project.description %>
+<hr>
 
-<div>
-	<%= @project.funding_goal %>
-  <%= @project.end_date %>
-
-
-
+<h2>Rewards</h2>
+<div class="rewards">
+  <%= render @project.rewards %>
 </div>
 
-
-
-
-<a href="https://www.facebook.com/sharer/sharer.php?u=SHAREMESSAGE" title="Share on Facebook" target="http://localhost:3000/projects/" + "#{project_id}" class="btn btn-facebook"><i class="fa fa-facebook"></i> Share on facebook</a>
-
-<%= link_to 'Edit Project', edit_project_path(@project) %>
+<hr>
+<span class="project-options">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=SHAREMESSAGE" title="Share on Facebook" target="http://localhost:3000/projects/" + "#{project_id}" class="btn btn-facebook"><i class="fa fa-facebook"></i> Share on facebook</a>
+  <%= link_to 'Edit Project', edit_project_path(@project) %>
+</span>
