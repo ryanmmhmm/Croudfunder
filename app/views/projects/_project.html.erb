@@ -3,7 +3,14 @@
   	<div>
   <%=image_tag("#{project.picture_url}") %>
   	</div>
+  <p><%= link_to project.title, project_path(project) %><p>
+  <p><%= project.description %></p>
+  <div class='project-progress-bar'>
+  	<div class="project-percent-pledge">
+  	</div>
+  </div>
   <p><%= project.funding_goal %></p>
   <p><%= project.days_left_message %></p>
-  <p><%= link_to project.title, project_path(project) %><p>
+
+
   </div>

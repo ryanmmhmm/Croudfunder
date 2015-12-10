@@ -22,6 +22,16 @@
 .clearfix {
   *zoom: 1;
 }
+
+.project-progress-bar {
+  border: 1px solid grey;
+  border-radius: 10px;
+  width: 70%;
+  height: 10px;
+
+}
+
+
 .clearfix:before,
 .clearfix:after {
   display: table;
@@ -763,7 +773,7 @@ ul.tag-cloud li {
 	margin-top: 13px;
 	margin-right: 350px;
 	margin-left: 30px;
-	
+
 }
 
 #search {
@@ -771,7 +781,7 @@ ul.tag-cloud li {
 }
 
 .wet-asphalt {
-	background-color: #1db95c; 
+	background-color: #1db95c;
 }
 
 .navbar-inverse .navbar-nav > .active > a,
