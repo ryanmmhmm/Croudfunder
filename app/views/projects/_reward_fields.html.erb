@@ -1,8 +1,13 @@
 <div class="nested-fields">
 
 	<div class="field">
-		<%= f.label :amount %>
+		<%= f.label :amount, "Pledge amount" %>
 		<%= f.number_field :amount %>
+	</div>
+
+	<div class="field">
+		<%= f.label :quantity %>
+		<%= f.number_field :quantity %>
 	</div>
 
 	<div class="field">
