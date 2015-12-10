@@ -37,7 +37,7 @@ skip_before_action :require_login, only: [:index, :show, :login], notice: 'Pleas
 
 	def create
 		@project = Project.new(project_params)
-		@project.owner_id = session[:user_id]
+		@project.owner = current_user
 
 		flash.now[:alert] = 'Something went wrong.' if Project.create.errors.any?
 
