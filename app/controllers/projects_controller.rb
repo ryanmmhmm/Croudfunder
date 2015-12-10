@@ -33,7 +33,7 @@ skip_before_action :require_login, only: [:index, :show, :login], notice: 'Pleas
 		flash.now[:alert] = 'Something went wrong.' if Project.create.errors.any?
 
 		if @project.save
-			redirect_to :root, notice: "Thank you for creating the new project #{@project.title}."
+			redirect_to :root, notice: "Thank you for creating the new project #{@project.title}, happy funding!"
 		else
 			render :new
 		end
@@ -58,7 +58,16 @@ skip_before_action :require_login, only: [:index, :show, :login], notice: 'Pleas
 
 	private
 	def project_params
-		params.require(:project).permit(:title, :start_date, :end_date, :funding_goal, :category, :description, :picture_url, :owner_id, rewards_attributes: [:amount, :description, :_destroy])
+		params.require(:project).permit(
+			:title,
+			:start_date,
+			:end_date,
+			:funding_goal,
+			:category,
+			:description,
+			:picture_url,
+			:owner_id,
+			rewards_attributes: [:amount, :description, :quantity, :_destroy])
 	end
 
   def not_authenticated
