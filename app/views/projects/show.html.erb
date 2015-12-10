@@ -6,7 +6,7 @@
   <div class="project-info">
     <p>Project Description: <%= @project.description %></p>
     <p>Funding Goal: <%= @project.funding_goal %></p>
-    <p>End Date: <%= @project.end_date %></p>
+    <p><%= @project.days_left_message %></p>
   </div>
 </div>
 <hr>
