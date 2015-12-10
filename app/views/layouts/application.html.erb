@@ -43,8 +43,8 @@
           <%= link_to 'Profile', user_path(current_user) %>
           <%= link_to 'Sign Out', :logout, method: :post %>
         <% else %>
-          <%= link_to 'Sign Up', :signup %>
-          <%= link_to 'Log In', :login %>
+          <%= link_to 'Sign Up', :signup, class: "green-login" %>
+          <%= link_to 'Log In', :login, class: "green-login" %>
         <% end %>
       </ul>
     </div>
