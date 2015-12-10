@@ -28,7 +28,7 @@ skip_before_action :require_login, only: [:index, :show, :login], notice: 'Pleas
 
 	def create
 		@project = Project.new(project_params)
-		# current_user.owned_projects << @project
+		@project.owner_id = session[:user_id]
 
 		flash.now[:alert] = 'Something went wrong.' if Project.create.errors.any?
 
@@ -58,7 +58,7 @@ skip_before_action :require_login, only: [:index, :show, :login], notice: 'Pleas
 
 	private
 	def project_params
-		params.require(:project).permit(:title, :start_date, :end_date, :funding_goal, :category, :description, :picture_url, rewards_attributes: [:amount, :description, :_destroy])
+		params.require(:project).permit(:title, :start_date, :end_date, :funding_goal, :category, :description, :picture_url, :owner_id, rewards_attributes: [:amount, :description, :_destroy])
 	end
 
   def not_authenticated
