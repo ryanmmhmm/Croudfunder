@@ -5,9 +5,21 @@
   <h3>About this project</h3>
   <div class="project-info">
     <p>Project Description: <%= @project.description %></p>
-    <p>Funding Goal: <%= number_to_currency(@project.funding_goal) %></p>
-    <p>Backers: <%=@project.backers %></p>
-    <p><%= @project.days_left_message %></p>
+    <div>
+    <h1><%= @project.pledge_total %></h1>
+    <p>pledged of <%= number_to_currency(@project.funding_goal) %> goal</p>
+    </div>
+
+    <div>
+    <h1> <%=@project.backers %></h1>
+    <% if @project.backers == 1 %>
+      <p>backer</p>
+    <% else %>
+      <p>backers</p>
+    <% end %>
+    </div>
+    <%= @project.days_left_message %>
+
   </div>
 </div>
 <hr>
