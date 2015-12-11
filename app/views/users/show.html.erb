@@ -1,9 +1,9 @@
 <h2><%= "#{@user.first_name}" + " " + "#{@user.last_name}" %></h2>
 
+<%= link_to 'Update profile', edit_user_path(@user) %>
+
 <h4>Past pledges</h4>
-
-
-
+<h5>Congragulations! you have pledged a total of <%= number_to_currency(@user.total_pledge_amount)%> and funded <%= @user.total_projects_backed %> campaigns </h5>
 
 <% @user.pledges.each do |i| %>
 
@@ -23,4 +23,4 @@
 	</ul>
 <% end %>
 
-<%= link_to 'Update profile', edit_user_path(@user) %>
+
