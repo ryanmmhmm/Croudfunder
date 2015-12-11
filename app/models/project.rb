@@ -33,4 +33,12 @@ class Project < ActiveRecord::Base
   def backers
     pledges.count
   end
+
+  def pledge_total
+    pledges.sum(:amount)
+  end
+
+  def percent_funded
+    pledge_total / funding_goal * 100
+  end
 end

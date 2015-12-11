@@ -5,4 +5,14 @@ $(document).on('ready page:load',function(){
 
 		$.getScript('/projects?title=' + searchValue)
 	});
+
+	$('.project-percent-pledge').each(function(index, element){
+		var percent_funded = $(element).data("percentage");
+		$(element).css("width", percent_funded + "%");
+	})
+
+
 });
+
+
+
