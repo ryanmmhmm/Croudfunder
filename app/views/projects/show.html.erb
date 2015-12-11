@@ -1,25 +1,38 @@
 <div class="project">
-	<h2><%= @project.title %></h2>
-  <%=image_tag("#{@project.picture_url}") %>
-
-  <h3>About this project</h3>
-  <div class="project-info">
-    <p>Project Description: <%= @project.description %></p>
+  <div>
     <div>
-    <h1><%= @project.pledge_total %></h1>
-    <p>pledged of <%= number_to_currency(@project.funding_goal) %> goal</p>
+  	 <h1><%= @project.title %></h1>
+      <%=image_tag("#{@project.picture_url}") %>
+    </div>
+
+    <div class="project-info">
+      <h2><%= @project.description %></h2>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <h2><%= @project.pledge_total %></h2>
+      <p>pledged of <%= number_to_currency(@project.funding_goal) %> goal</p>
     </div>
 
     <div>
-    <h1> <%=@project.backers %></h1>
-    <% if @project.backers == 1 %>
-      <p>backer</p>
-    <% else %>
-      <p>backers</p>
-    <% end %>
+      <h2> <%=@project.backers %></h2>
+      <% if @project.backers == 1 %>
+        <p>backer</p>
+      <% else %>
+        <p>backers</p>
+      <% end %>
     </div>
-    <%= @project.days_left_message %>
 
+    <div>
+      <% if @project.days_left <= 0 %>
+        <h2>campaign ended</h2>
+      <% else %>
+        <h2><%= @project.days_left%></h2>
+        <p>days to go</p>
+      <% end %>
+    </div>
   </div>
 </div>
 <hr>
@@ -31,6 +44,5 @@
 
 <hr>
 <span class="project-options">
-  <a href="https://www.facebook.com/sharer/sharer.php?u=SHAREMESSAGE" title="Share on Facebook" target="http://localhost:3000/projects/" + "#{project_id}" class="btn btn-facebook"><i class="fa fa-facebook"></i> Share on facebook</a>
   <%= link_to 'Edit Project', edit_project_path(@project) %>
 </span>
