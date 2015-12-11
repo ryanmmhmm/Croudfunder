@@ -12,7 +12,7 @@
 
   <div>
     <div>
-      <h2><%= @project.pledge_total %></h2>
+      <h2><%= number_to_currency(@project.pledge_total) %></h2>
       <p>pledged of <%= number_to_currency(@project.funding_goal) %> goal</p>
     </div>
 
@@ -38,11 +38,16 @@
 <hr>
 
 <h2>Rewards</h2>
-<div class="rewards">
-  <%= render @project.rewards %>
+
+<section id="portfolio" class="container">
+    <ul class="portfolio-items col-3">
+        <%= render @project.rewards %>
+    </ul>
+</section>
+
 </div>
 
-<hr>
+
 <span class="project-options">
   <%= link_to 'Edit Project', edit_project_path(@project) %>
 </span>
