@@ -1,6 +1,7 @@
 class Project < ActiveRecord::Base
   belongs_to :owner, class_name: User
   has_many :rewards
+  has_many :pledges, through: :rewards
 
   validates :title, presence: true
   validates :funding_goal, presence: true
@@ -27,5 +28,9 @@ class Project < ActiveRecord::Base
 
   def self.random_project
     Project.order("RANDOM()").first
+  end
+
+  def backers
+    pledges.count
   end
 end
