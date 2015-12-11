@@ -7,16 +7,16 @@
             <li data-target="#main-slider" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-            <div class="item active" style="background-image: url(<%= @project1.picture_url%>)">
+            <div class="item active" style="background-image: url(<%= @random_projects[0].picture_url%>)">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="carousel-content center centered">
-                                <h2 class="boxed animation animated-item-1"><%= @project1.title %></h2>
+                                <h2 class="boxed animation animated-item-1"><%= @random_projects[0].title %></h2>
                                 <br>
-                                <p class="boxed animation animated-item-2"><%= @project1.description %></p>
+                                <p class="boxed animation animated-item-2"><%= @random_projects[0].description %></p>
                                 <br>
-                                <%= link_to 'Learn more', project_path(@project1), class: "btn btn-md animation animated-item-3" %>
+                                <%= link_to 'Learn more', project_path(@random_projects[0]), class: "btn btn-md animation animated-item-3" %>
                             </div>
                         </div>
                     </div>
@@ -24,16 +24,16 @@
             </div>
 
                 <!--/.item-->
-        <div class="item" style="background-image: url(<%= @project2.picture_url %>)">
+        <div class="item" style="background-image: url(<%= @random_projects[1].picture_url %>)">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="carousel-content center centered">
-                            <h2 class="boxed animation animated-item-1"><%= @project2.title %></h2>
+                            <h2 class="boxed animation animated-item-1"><%= @random_projects[1].title %></h2>
                             <br>
-                            <p class="boxed animation animated-item-2"><%= @project2.description %></p>
+                            <p class="boxed animation animated-item-2"><%= @random_projects[1].description %></p>
                             <br>
-                            <%= link_to 'Learn more', project_path(@project2), class: "btn btn-md animation animated-item-3" %>
+                            <%= link_to 'Learn more', project_path(@random_projects[1]), class: "btn btn-md animation animated-item-3" %>
                         </div>
                     </div>
                 </div>
@@ -41,16 +41,16 @@
         </div>
 
                 <!--/.item-->
-        <div class="item" style="background-image: url(<%= @project3.picture_url %>)">
+        <div class="item" style="background-image: url(<%= @random_projects[2].picture_url %>)">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="carousel-content center centered">
-                            <h2 class="boxed animation animated-item-1"><%= @project3.title %></h2>
+                            <h2 class="boxed animation animated-item-1"><%= @random_projects[2].title %></h2>
                             <br>
-                            <p class="boxed animation animated-item-2"><%= @project3.description %></p>
+                            <p class="boxed animation animated-item-2"><%= @random_projects[2].description %></p>
                             <br>
-                            <%= link_to 'Learn more', project_path(@project3), class: "btn btn-md animation animated-item-3" %>
+                            <%= link_to 'Learn more', project_path(@random_projects[2]), class: "btn btn-md animation animated-item-3" %>
                         </div>
                     </div>
                 </div>

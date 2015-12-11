@@ -1,8 +1,8 @@
 <li class="portfolio-item apps">
     <div class="item-inner">
-        <div id='thumbnail-image'>
+        <div id="thumbnail-image-<%= project.id %>">
           <style type="text/css">
-            #thumbnail-image {
+            #thumbnail-image-<%= project.id %> {
                 background: url("<%= project.picture_url%>") no-repeat center;
 
                 background-size: cover;
@@ -10,7 +10,6 @@
                 height: 20em;
             }
 
-          </style>
           </style>
         </div>
         <h5><%= link_to project.title, project_path(project) %></h5>

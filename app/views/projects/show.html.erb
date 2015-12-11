@@ -37,8 +37,8 @@
                     <p>pledged of <%= number_to_currency(@project.funding_goal) %> goal</p>
                 </div><!--/.categories-->
                 <div class="widget tags">
-                    <h3><%=@project.backers %></h3>
-                    <% if @project.backers == 1 %>
+                    <h3><%=@project.unique_backers %></h3>
+                    <% if @project.unique_backers == 1 %>
                       <p>backer</p>
                     <% else %>
                       <p>backers</p>

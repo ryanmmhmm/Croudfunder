@@ -26,12 +26,21 @@ class Project < ActiveRecord::Base
 		days_left ? (days_left.to_s + ' days ') : 'Campaign Ended'
 	end
 
-  def self.random_project
-    Project.order("RANDOM()").first
+  def self.random_project(size=1)
+    Project.order("RANDOM()").first(size)
   end
 
   def backers
     pledges.count
+  end
+
+  def unique_backers
+    user_ids = []
+    pledges.each do |i|
+      user_ids << i.user_id
+    end
+
+    unique_backers = user_ids.uniq!.count
   end
 
   def pledge_total
