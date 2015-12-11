@@ -1,5 +1,110 @@
-<div class="project">
-	<h2><%= @project.title %></h2>
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<!-- facebook fan page? company facebok? -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=144716315690681";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+
+    <section id="title" class="emerald">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>Blog Item</h1>
+                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+                </div>
+
+            </div>
+        </div>
+    </section><!--/#title-->
+
+    <section id="blog" class="container">
+        <div class="row">
+            <aside class="col-sm-4 col-sm-push-8">
+
+
+                <div class="widget categories">
+                    <h3>Backers</h3>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul class="arrow">
+                                <li><a href="#">Development</a></li>
+                                <li><a href="#">Design</a></li>
+                                <li><a href="#">Updates</a></li>
+                                <li><a href="#">Tutorial</a></li>
+                                <li><a href="#">News</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div><!--/.categories-->
+                <div class="widget tags">
+                    <h3>Pledged</h3>
+                    <ul class="tag-cloud">
+                        <li><a class="btn btn-xs btn-primary" href="#">Back This Project</a></li>
+
+                    </ul>
+                </div><!--/.tags-->
+
+                <div class="widget facebook-fanpage">
+                    <h3>Company Fanpage</h3>
+                    <div class="widget-content">
+                        <div class="fb-like-box" data-href="https://www.facebook.com/BitmakerHQ/?fref=ts" data-width="292" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+                    </div>
+                </div>
+            </aside>
+            <div class="col-sm-8 col-sm-pull-4">
+                <div class="blog">
+                    <div class="blog-item">
+                        <img class="img-responsive img-blog" src="images/blog/blog2.jpg" width="100%" alt="" />
+                        <div class="blog-content">
+                            <h3>Duis sed odio sit amet nibh vulputate cursus</h3>
+                            <div class="entry-meta">
+                                <span><i class="icon-user"></i> <a href="#">John</a></span>
+                                <span><i class="icon-folder-close"></i> <a href="#">Bootstrap</a></span>
+                                <span><i class="icon-calendar"></i> Sept 16th, 2012</span>
+                                <span><i class="icon-comment"></i> <a href="blog-item.html#comments">3 Comments</a></span>
+                            </div>
+                            <p class="lead">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+
+                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+
+                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+                            <hr>
+
+                            <!-- Possible share links/ project tags -->
+                            <!-- <div class="tags">
+                                <i class="icon-tags"></i> Tags <a class="btn btn-xs btn-primary" href="#">CSS3</a> <a class="btn btn-xs btn-primary" href="#">HTML5</a> <a class="btn btn-xs btn-primary" href="#">WordPress</a> <a class="btn btn-xs btn-primary" href="#">Joomla</a>
+                            </div>
+ -->
+                            <p>&nbsp;</p>
+
+    </section><!--/#blog-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2><%= @project.title %></h2>
   <%=image_tag("#{@project.picture_url}") %>
 
   <h3>About this project</h3>
