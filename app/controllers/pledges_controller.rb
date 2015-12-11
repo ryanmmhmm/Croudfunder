@@ -6,8 +6,8 @@ class PledgesController < ApplicationController
   end
 
   def create
-  	@pledge = @reward.Pledge.new
-  	@pledge.owner = current_user
+  	@pledge = @reward.Pledge.new(pledge_params)
+  	@pledge.user = current_user
   end
 
   def new
@@ -25,6 +25,6 @@ class PledgesController < ApplicationController
   end
 
   def pledge_params
-  	params.require(:pledge).permit(:reward_id, :user_id)
+  	params.require(:pledge).permit(:reward_id)
   end
 end
