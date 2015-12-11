@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210194317) do
+ActiveRecord::Schema.define(version: 20151211054336) do
 
   create_table "pledges", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -30,10 +30,11 @@ ActiveRecord::Schema.define(version: 20151210194317) do
     t.date     "end_date"
     t.text     "description"
     t.string   "picture_url"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "category"
     t.integer  "owner_id"
+    t.text     "long_description"
   end
 
   create_table "rewards", force: :cascade do |t|
