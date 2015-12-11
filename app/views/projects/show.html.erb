@@ -1,3 +1,4 @@
+<HEAD>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -113,17 +114,59 @@
     <p>Funding Goal: <%= @project.funding_goal %></p>
     <p>Backers: <%=@project.backers %></p>
     <p><%= @project.days_left_message %></p>
+<div class="project">
+  <div>
+    <div>
+  	 <h1><%= @project.title %></h1>
+      <%=image_tag("#{@project.picture_url}") %>
+    </div>
+
+    <div class="project-info">
+      <h2><%= @project.description %></h2>
+    </div>
+    <div class="project-info">
+      <h4><%= @project.long_description %></h4>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <h2><%= number_to_currency(@project.pledge_total) %></h2>
+      <p>pledged of <%= number_to_currency(@project.funding_goal) %> goal</p>
+    </div>
+
+    <div>
+      <h2> <%=@project.backers %></h2>
+      <% if @project.backers == 1 %>
+        <p>backer</p>
+      <% else %>
+        <p>backers</p>
+      <% end %>
+    </div>
+
+    <div>
+      <% if @project.days_left <= 0 %>
+        <h2>campaign ended</h2>
+      <% else %>
+        <h2><%= @project.days_left%></h2>
+        <p>days to go</p>
+      <% end %>
+    </div>
   </div>
 </div>
 <hr>
 
 <h2>Rewards</h2>
-<div class="rewards">
-  <%= render @project.rewards %>
+
+<section id="portfolio" class="container">
+    <ul class="portfolio-items col-3">
+        <%= render @project.rewards %>
+    </ul>
+</section>
+
 </div>
 
-<hr>
+
 <span class="project-options">
-  <a href="https://www.facebook.com/sharer/sharer.php?u=SHAREMESSAGE" title="Share on Facebook" target="http://localhost:3000/projects/" + "#{project_id}" class="btn btn-facebook"><i class="fa fa-facebook"></i> Share on facebook</a>
   <%= link_to 'Edit Project', edit_project_path(@project) %>
 </span>

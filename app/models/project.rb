@@ -23,7 +23,7 @@ class Project < ActiveRecord::Base
   end
 
   def days_left_message
-		days_left ? (days_left.to_s + ' days left') : 'Campaign Ended'
+		days_left ? (days_left.to_s + ' days ') : 'Campaign Ended'
 	end
 
   def self.random_project
@@ -39,6 +39,6 @@ class Project < ActiveRecord::Base
   end
 
   def percent_funded
-    pledge_total / funding_goal * 100
+    pledge_total.to_f / funding_goal.to_f * 100.0
   end
 end

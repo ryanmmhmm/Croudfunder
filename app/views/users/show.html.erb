@@ -1,15 +1,26 @@
 <h2><%= "#{@user.first_name}" + " " + "#{@user.last_name}" %></h2>
 
+<%= link_to 'Update profile', edit_user_path(@user) %>
+
 <h4>Past pledges</h4>
-
-
-
+<h5>Congragulations! you have pledged a total of <%= number_to_currency(@user.total_pledge_amount)%> and funded <%= @user.total_projects_backed %> campaigns </h5>
 
 <% @user.pledges.each do |i| %>
-<%= i.title %>
-<%= i.description %>
-<%= i.amount %>
 
+<%= i.created_at.strftime("Pledged on %m/%d/%Y") %>
+
+  <ul class="portfolio-items col-3">
+		<li class="portfolio-item apps">
+		  <div class="item-inner">
+		    <h4><%= i.title %></h4>
+		    <h5><%= i.description %></h5>
+		    <h5><%= number_to_currency(i.amount) %></h5>
+		    <div class="overlay">
+		      <%= link_to "View Project", project_path(i.project),class: "green-button-view preview btn " %>
+		    </div>
+		   </div>
+		</li>
+	</ul>
 <% end %>
 
-<%= link_to 'Update profile', edit_user_path(@user) %>
+

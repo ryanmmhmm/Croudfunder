@@ -8,4 +8,8 @@ class Reward < ActiveRecord::Base
   	quantity - pledges.count
   end
 
+  def reward_backer_count
+  	pledges.count
+  end
+
 end

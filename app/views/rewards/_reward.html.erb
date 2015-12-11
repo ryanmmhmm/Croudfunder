@@ -1,19 +1,35 @@
-<hr>
-
 
 <li class="portfolio-item apps">
-    <div class="item-inner">
-        <h5>Title: <%= reward.title %></h5>
-        <h6>Amount: <%= number_to_currency(reward.amount)%></h6>
-        <h6>Quantity left: <%= reward.remaining %></h6>
-        <h6>Description: <%= reward.description %></h6>
-        <div class="overlay">
-            <%= form_for [current_user, @pledge], class: "green-button-view preview btn " do |f| %>
-            <%= f.hidden_field :reward_id, value: reward.id %>
+  <div class="item-inner">
+    <h4>pledge <%= number_to_currency(reward.amount)%> or more</h4>
+    <h6><%= reward.reward_backer_count %>
+		<% if reward.reward_backer_count == 1 %>
+			backer
+		<% else %>
+			backers
+		<% end %>
 
-            <%= f.submit "Pledge" %>
-            <% end %>
-        </div>
+		</h6>
+    <h6><%= reward.remaining %> left</h6>
+    <br>
+    <h6><%= reward.description %></h6>
+
+    <div class="overlay">
+
+      <% if reward.remaining <= 0 %>
+      	<a class="green-button-view preview btn">All gone!</a>
+      <% else %>
+      <br>
+      <br>
+      <br>
+      <br>
+        <%= form_for [current_user, @pledge] do |f| %>
+        <%= f.hidden_field :reward_id, value: reward.id %>
+        <%= f.submit "Select this reward", class: "green-button-view preview btn" %>
+        <% end %>
+       <% end %>
+
     </div>
+   </div>
 </li>
 

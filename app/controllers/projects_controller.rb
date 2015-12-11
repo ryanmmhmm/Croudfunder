@@ -54,7 +54,7 @@ skip_before_action :require_login, only: [:index, :show, :login], notice: 'Pleas
 		@project = Project.find(params[:id])
 
 		if @project.update_attributes(project_params)
-			redirect_to projects_path(@project)
+			redirect_to project_path(@project)
 		else
 			render :edit
 		end
