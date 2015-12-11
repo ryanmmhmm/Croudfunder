@@ -5,7 +5,7 @@
   <h3>About this project</h3>
   <div class="project-info">
     <p>Project Description: <%= @project.description %></p>
-    <p>Funding Goal: <%= @project.funding_goal %></p>
+    <p>Funding Goal: <%= number_to_currency(@project.funding_goal) %></p>
     <p>Backers: <%=@project.backers %></p>
     <p><%= @project.days_left_message %></p>
   </div>

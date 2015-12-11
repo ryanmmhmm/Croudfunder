@@ -39,6 +39,6 @@ class Project < ActiveRecord::Base
   end
 
   def percent_funded
-    pledge_total / funding_goal * 100
+    pledge_total.to_f / funding_goal.to_f * 100.0
   end
 end
