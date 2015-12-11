@@ -2,7 +2,6 @@ class Project < ActiveRecord::Base
   belongs_to :owner, class_name: User
   has_many :rewards
 
-  validates :owner_id, presence: true
   validates :title, presence: true
   validates :funding_goal, presence: true
   validates :start_date, presence: true
@@ -29,5 +28,4 @@ class Project < ActiveRecord::Base
   def self.random_project
     Project.order("RANDOM()").first
   end
-
 end

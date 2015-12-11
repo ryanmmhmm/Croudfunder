@@ -26,12 +26,12 @@
 
 	<div class="field">
 		<%= f.label :funding_goal %><br />
-		<%= f.number_field :funding_goal %>
+		<%= f.number_field :funding_goal, min: 1, max: 5000000  %>
 	</div>
 
 	<div class="field">
 		<%= f.label :description %><br />
-		<%= f.text_field :description %>
+		<%= f.text_area :description %>
 	</div>
 
   <div class="field">

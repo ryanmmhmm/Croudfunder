@@ -8,7 +8,7 @@
         <div class="project-percent-pledge"></div>
 
 
-        <h6><%= project.funding_goal %></h6>
+        <h6><%= number_to_currency(project.funding_goal) %></h6>
         <h6><%= project.days_left_message %></h6>
         <div class="overlay">
 
