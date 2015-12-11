@@ -1,6 +1,18 @@
 <li class="portfolio-item apps">
     <div class="item-inner">
-        <%=image_tag("#{project.picture_url}", class: "thumbnail-img" ) %>
+        <div id='thumbnail-image'>
+          <style type="text/css">
+            #thumbnail-image {
+                background: url("<%= project.picture_url%>") no-repeat center;
+
+                background-size: cover;
+                width: 100%;
+                height: 20em;
+            }
+
+          </style>
+          </style>
+        </div>
         <h5><%= link_to project.title, project_path(project) %></h5>
         <h6><%= project.description %></h6>
 
