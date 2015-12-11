@@ -1,6 +1,15 @@
 <h2><%= "#{@user.first_name}" + " " + "#{@user.last_name}" %></h2>
 
 <h4>Past pledges</h4>
-<%= @pledges %>
+
+
+
+
+<% @user.pledges.each do |i| %>
+<%= i.title %>
+<%= i.description %>
+<%= i.amount %>
+
+<% end %>
 
 <%= link_to 'Update profile', edit_user_path(@user) %>
