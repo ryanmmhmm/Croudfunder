@@ -88,7 +88,7 @@
                 <%=image_tag("#{Project.find(1).picture_url}") %>
 
                 <div class="overlay">
-                    <a class="preview btn btn-danger" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                    <%= link_to "View", project_path(1),class: "green-button-view preview btn " %>
                 </div>
             </div>
         </li>
@@ -100,7 +100,7 @@
                 <div class='project-progress-bar'></div>
                 <div class="project-percent-pledge"></div>
 
-                <h6><%= Project.find(1).funding_goal %></h6>
+                <h6><%= number_to_currency(Project.find(1).funding_goal) %></h6>
                 <h6><%= Project.find(1).days_left_message %></h6>
         </div>
         </li>

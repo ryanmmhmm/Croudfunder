@@ -4,11 +4,11 @@
         <h5><%= link_to project.title, project_path(project) %></h5>
         <h6><%= project.description %></h6>
 
-        <div class='project-progress-bar'></div>
-        <div class="project-percent-pledge"></div>
+        <div class='project-progress-bar'>
+        <div class="project-percent-pledge" data-percentage="<%= project.percent_funded %>"></div>
+        </div>
 
-
-        <h6><%= project.funding_goal %></h6>
+        <h6><%= number_to_currency(project.funding_goal) %></h6>
         <h6><%= project.days_left_message %></h6>
         <div class="overlay">
 

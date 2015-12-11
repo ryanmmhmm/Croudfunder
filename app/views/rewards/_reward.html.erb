@@ -1,9 +1,19 @@
 <hr>
-<div class="project-reward">
-  <span>
-    <p>Title: <%= reward.title %></p>
-    <p>Amount: <%= reward.amount %></p>
-    <p>Quantity: <%= reward.quantity %></p>
-  </span>
-  <p>Description: <%= reward.description %></p>
-</div>
+
+
+<li class="portfolio-item apps">
+    <div class="item-inner">
+        <h5>Title: <%= reward.title %></h5>
+        <h6>Amount: <%= number_to_currency(reward.amount)%></h6>
+        <h6>Quantity left: <%= reward.remaining %></h6>
+        <h6>Description: <%= reward.description %></h6>
+        <div class="overlay">
+            <%= form_for [current_user, @pledge], class: "green-button-view preview btn " do |f| %>
+            <%= f.hidden_field :reward_id, value: reward.id %>
+
+            <%= f.submit "Pledge" %>
+            <% end %>
+        </div>
+    </div>
+</li>
+

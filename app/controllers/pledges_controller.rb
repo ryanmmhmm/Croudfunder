@@ -1,13 +1,17 @@
 class PledgesController < ApplicationController
-  before_action :load_reward
 
   def show
   	@pledge = Pledge.find(params[:id])
   end
 
   def create
-  	@pledge = @reward.Pledge.new
-  	@pledge.owner = current_user
+  	@pledge = Pledge.new(pledge_params)
+  	@pledge.user = current_user
+  	if @pledge.save
+  		redirect_to current_user
+  	else
+  		render "projects/show", notice: "Pledge couldn't be processed"
+  	end
   end
 
   def new
@@ -20,11 +24,7 @@ class PledgesController < ApplicationController
   end
 
   private
-  def load_reward
-  	@reward = Reward.find(params[:reward_id])
-  end
-
   def pledge_params
-  	params.require(:pledge).permit(:reward_id, :user_id)
+  	params.require(:pledge).permit(:reward_id)
   end
 end

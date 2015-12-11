@@ -1,8 +1,8 @@
 class Project < ActiveRecord::Base
   belongs_to :owner, class_name: User
   has_many :rewards
+  has_many :pledges, through: :rewards
 
-  validates :owner_id, presence: true
   validates :title, presence: true
   validates :funding_goal, presence: true
   validates :start_date, presence: true
@@ -30,4 +30,15 @@ class Project < ActiveRecord::Base
     Project.order("RANDOM()").first
   end
 
+  def backers
+    pledges.count
+  end
+
+  def pledge_total
+    pledges.sum(:amount)
+  end
+
+  def percent_funded
+    pledge_total / funding_goal * 100
+  end
 end
