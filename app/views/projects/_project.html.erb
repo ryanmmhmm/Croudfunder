@@ -5,11 +5,26 @@
         <h6><%= project.description %></h6>
 
         <div class='project-progress-bar'>
-        <div class="project-percent-pledge" data-percentage="<%= project.percent_funded %>"></div>
+            <div class="project-percent-pledge" data-percentage="<%= project.percent_funded %>">
+            </div>
         </div>
 
-        <h6><%= number_to_currency(project.funding_goal) %></h6>
-        <h6><%= project.days_left_message %></h6>
+        <div>
+            <h6><%= "#{project.percent_funded.to_i}" + "%" %> funded </h6>
+        </div>
+        <div>
+            <h6><%= number_to_currency(project.pledge_total) %> pledged</h6>
+        </div>
+
+        <% if project.days_left == 1 %>
+            <h6><%= project.days_left %> day to go</h6>
+        <% elsif project.days_left <= 0%>
+            <h6>Campaign has ended</h6>
+        <% else %>
+            <h6><%= project.days_left %> days to go</h6>
+        <% end %>
+
+
         <div class="overlay">
 
             <%= link_to "View", project_path(project),class: "green-button-view preview btn " %>
