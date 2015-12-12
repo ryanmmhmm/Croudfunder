@@ -2,6 +2,7 @@ class Project < ActiveRecord::Base
   belongs_to :owner, class_name: User
   has_many :rewards
   has_many :pledges, through: :rewards
+  has_many :users, through: :pledges
 
   validates :title, presence: true
   validates :funding_goal, presence: true
@@ -35,12 +36,7 @@ class Project < ActiveRecord::Base
   end
 
   def unique_backers
-    user_ids = []
-    pledges.each do |i|
-      user_ids << i.user_id
-    end
-
-    unique_backers = user_ids.uniq!.count
+    self.users.uniq.count
   end
 
   def pledge_total
