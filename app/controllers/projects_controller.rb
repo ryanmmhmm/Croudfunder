@@ -5,17 +5,27 @@ skip_before_action :require_login, only: [:index, :show, :login], notice: 'Pleas
 	def index
 
 		@categories = ['Art','Comics', 'Crafts', 'Dance', 'Design', 'Fashion', 'Film & Video', 'Food', 'Games', 'Journalism', 'Music', 'Photography', 'Publishing', 'Technology', 'Theatre']
+	  params[:name] ||= @categories.sample
 
+		if params[:name]
+			@category_show = Project.order("created_at desc").find_by(category: params[:name])
+		end
+		# binding.pry
 		if params[:title]
 			@projects = Project.where("LOWER(title) LIKE LOWER (?)", "%#{params[:title]}%")
 		else
 			@projects = Project.all.order(start_date: :asc)
 		end
-		@random_projects = Project.random_project(3)
+			@random_projects = Project.random_project(3)
 
 		respond_to do |format|
-      format.html
-      format.js
+
+			format.html do
+			if request.xhr?
+				render(partial: "category", locals: {'@category_show': @category_show})
+    	end
+    end
+      # format.js
     end
 	end
 

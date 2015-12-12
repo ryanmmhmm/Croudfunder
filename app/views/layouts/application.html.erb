@@ -34,7 +34,7 @@
         <li><%= link_to 'Start a Project', new_project_path %></li>
         <li><a href="services.html">About Us</a></li>
         <li class="navbar-search">
-         <%= render 'search' %>
+         <%= render 'projects/search' %>
         </li>
         <% if current_user %>
           <%= link_to 'Profile', user_path(current_user) %>

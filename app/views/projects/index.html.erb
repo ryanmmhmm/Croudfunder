@@ -80,44 +80,25 @@
 <h2>Explore an innovative creative universe</h2>
 <p>15 diverse catagories. Thousands of amazing projects.</p>
 
-<section class="container">
 
+<section class="container" >
     <ul class="portfolio-items col-3">
-        <li class="portfolio-item apps">
-            <div class="item-inner">
-                <%=image_tag("#{Project.find(1).picture_url}") %>
+        <div id="fuck-ryan">
+        <%= render 'category' %>
+        </div>
 
-                <div class="overlay">
-                    <%= link_to "View", project_path(1),class: "green-button-view preview btn " %>
-                </div>
+        <li class="portfolio-item apps">
+            <div class="discover-categories">
+                <% @categories.each do |i| %>
+                    <ul>
+                      <%= link_to i, projects_path,class: 'category-display' %>
+                    </ul>
+                <% end %>
             </div>
         </li>
-        <li class="portfolio-item apps">
-        <div class="item-inner"
-           <h5><%= link_to Project.find(1).title, project_path(Project.find(1)) %></h5>
-                <h6><%= Project.find(1).description %></h6>
-
-                <div class='project-progress-bar'></div>
-                <div class="project-percent-pledge"></div>
-
-                <h6><%= number_to_currency(Project.find(1).funding_goal) %></h6>
-                <h6><%= Project.find(1).days_left_message %></h6>
-        </div>
-        </li>
-        <li class="portfolio-item apps">
-          <div class="discover-categories">
-            <% @categories.each do |i| %>
-            <ul>
-              <%= link_to i, projects_path %>
-              </ul>
-            <% end %>
-          </div>
-        </li>
-
-
     </ul>
-
 </section>
+
 
 <hr>
 

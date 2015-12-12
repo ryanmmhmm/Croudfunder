@@ -1,0 +1,29 @@
+
+
+    <ul class="portfolio-items col-3">
+        <li class="portfolio-item apps">
+            <div class="item-inner">
+                <%=image_tag("#{@category_show.picture_url}") %>
+
+                <div class="overlay">
+                    <%= link_to "View", project_path(@category_show),class: "green-button-view preview btn " %>
+                </div>
+            </div>
+        </li>
+        <li class="portfolio-item apps">
+        <div class="item-inner"
+           <h5><%= link_to @category_show.title, project_path(@category_show) %></h5>
+                <h6><%= @category_show.description %></h6>
+
+                <div class='project-progress-bar'></div>
+                <div class="project-percent-pledge"></div>
+
+                <h6><%= number_to_currency(@category_show.funding_goal) %></h6>
+                <h6><%= @category_show.days_left_message %></h6>
+        </div>
+        </li>
+
+
+
+    </ul>
+

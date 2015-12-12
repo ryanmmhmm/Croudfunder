@@ -11,7 +11,18 @@ $(document).on('ready page:load',function(){
 		$(element).css("width", percent_funded + "%");
 	})
 
-
+	$('.category-display').click(function(event){
+		event.preventDefault();
+		var categoryName = $(this).text();
+		$.ajax({
+			url: '/projects?name=' + categoryName,
+			method: 'get',
+			success: function(data){
+				$('#fuck-ryan').html(data)
+			},
+			dataType: "html"
+		});
+	});
 });
 
 
