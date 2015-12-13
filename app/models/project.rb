@@ -50,16 +50,25 @@ class Project < ActiveRecord::Base
 
   def self.top_three
       # Project.all.select{:self.percent_funded < 100}.sort{:self.percent_funded}.slice(3)
+
       projects_perecent_funded = []
       Project.all.each do |i|
         if i.days_left > 0
-          projects_perecent_funded << i.percent_funded
+          projects_perecent_funded << i
         end
       end
-        projects_perecent_funded.delete_if {|x| x >= 100}
-        projects_perecent_funded.sort { |x, y| y <=> x }
+        projects_perecent_funded.delete_if {|x| x.percent_funded >= 100}
+        projects_perecent_funded.sort! { |x, y| y.percent_funded <=> x.percent_funded }
         projects_perecent_funded[0..2]
-
-
-    end
+      # top_three = []
+      # Project.all.each do |project|
+      #   if project.percent_funded < 100
+      #     top_three << project
+      #   end
+      # end
+      # top_three.sort! do |a,b|
+      # a.percent_funded <=> b.percent_funded
+      # end
+      # top_three
+  end
 end

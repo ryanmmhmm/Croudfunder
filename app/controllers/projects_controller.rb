@@ -14,7 +14,7 @@ skip_before_action :require_login, only: [:index, :show, :login], notice: 'Pleas
 		if params[:title]
 			@projects = Project.where("LOWER(title) LIKE LOWER (?)", "%#{params[:title]}%")
 		else
-			@projects = Project.all.order(start_date: :asc)
+			@projects = Project.top_three
 		end
 			@random_projects = Project.random_project(3)
 
