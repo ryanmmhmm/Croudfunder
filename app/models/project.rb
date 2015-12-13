@@ -16,10 +16,10 @@ class Project < ActiveRecord::Base
   def days_left
   	days_left = (end_date - Date.today).to_i
 
-  	if days_left >= 0
+  	if days_left > 0
   		return days_left
   	else
-  		return false
+  		return 0
   	end
   end
 
@@ -46,4 +46,20 @@ class Project < ActiveRecord::Base
   def percent_funded
     pledge_total.to_f / funding_goal.to_f * 100.0
   end
+
+
+  def self.top_three
+      # Project.all.select{:self.percent_funded < 100}.sort{:self.percent_funded}.slice(3)
+      projects_perecent_funded = []
+      Project.all.each do |i|
+        if i.days_left > 0
+          projects_perecent_funded << i.percent_funded
+        end
+      end
+        projects_perecent_funded.delete_if {|x| x >= 100}
+        projects_perecent_funded.sort { |x, y| y <=> x }
+        projects_perecent_funded[0..2]
+
+
+    end
 end
