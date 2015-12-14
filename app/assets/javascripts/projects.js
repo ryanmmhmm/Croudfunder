@@ -18,7 +18,7 @@ $(document).on('ready page:load',function(){
 			url: '/projects?name=' + categoryName,
 			method: 'get',
 			success: function(data){
-				$('#fuck-ryan').html(data)
+				$('#unique-category').html(data)
 			},
 			dataType: "html"
 		});
