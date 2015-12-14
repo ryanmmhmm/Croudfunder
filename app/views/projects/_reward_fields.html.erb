@@ -1,20 +1,28 @@
+
+  <form class="center" role="form">
+    <fieldset class="registration-form">
+
 <div class="nested-fields">
 
-	<div class="field">
+	<div class="form-group">
 		<%= f.label :amount, "Pledge amount" %>
-		<%= f.number_field :amount %>
+		<%= f.number_field :amount, class: "form-control" %>
 	</div>
 
-	<div class="field">
+	<div class="form-group">
 		<%= f.label :quantity %>
-		<%= f.number_field :quantity %>
+		<%= f.number_field :quantity, class: "form-control" %>
 	</div>
 
-	<div class="field">
+	<div class="form-group">
 		<%= f.label :description %>
-		<%= f.text_area :description %>
+		<%= f.text_area :description, class: "form-control" %>
 	</div>
 
 	<%= link_to_remove_association "Remove Reward", f %>
 
 </div>
+
+</fieldset>
+</form>
+
