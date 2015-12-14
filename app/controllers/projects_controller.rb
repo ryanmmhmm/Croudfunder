@@ -16,6 +16,11 @@ skip_before_action :require_login, only: [:index, :show, :login], notice: 'Pleas
 		else
 			@projects = Project.top_three
 		end
+
+		if params[:project]
+			@projects = Project.all
+		end
+
 			@random_projects = Project.random_project(3)
 
 		respond_to do |format|

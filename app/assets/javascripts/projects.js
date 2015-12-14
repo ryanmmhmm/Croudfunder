@@ -23,6 +23,19 @@ $(document).on('ready page:load',function(){
 			dataType: "html"
 		});
 	});
+
+	$('.all-projects').click(function(event){
+		event.preventDefault();
+	$.ajax({
+		url: '/projects?project=all',
+		method: 'get',
+		success: function(data){
+			$('#projects').html(data)
+		},
+		dataType: "html"
+		});
+	});
+
 });
 
 
