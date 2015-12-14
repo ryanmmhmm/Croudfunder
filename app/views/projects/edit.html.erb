@@ -2,59 +2,62 @@
 
 <%= form_for(@project) do |f| %>
 
-	<div class="field">
-		<%= f.label :title %><br />
-		<%= f.text_field :title %>
-	</div>
+	<section id="registration" class="container">
+  <form class="center" role="form">
+    <fieldset class="registration-form">
+			<div class="form-group">
+				<%= f.label :title %><br />
+				<%= f.text_field :title, class: "form-control" %>
+			</div>
 
-	<div class="field">
-		<%= f.label :start_date %><br />
-		<%= f.date_select :start_date %>
-	</div>
+			<div class="form-group">
+				<%= f.label :end_date %><br />
+				<%= f.date_select :end_date, class: "form-control"  %>
+			</div>
 
-	<div class="field">
-		<%= f.label :end_date %><br />
-		<%= f.date_select :end_date %>
-	</div>
+			<div class="form-group">
+		  	<%= f.label :category %><br />
+		  	<%= f.select :category, ['Art','Comics', 'Crafts', 'Dance', 'Design', 'Fashion', 'Film & Video', 'Food', 'Games', 'Journalism', 'Music', 'Photography', 'Publishing', 'Technology', 'Theatre'], prompt: 'Select one', class: "form-control" %>
+			</div>
 
-	<div class="field">
-  	<%= f.label :category %><br />
-  	<%= f.select :category, ['Art','Comics', 'Crafts', 'Dance', 'Design', 'Fashion', 'Film & Video', 'Food', 'Games', 'Journalism', 'Music', 'Photography', 'Publishing', 'Technology', 'Theatre'], prompt: 'Select one' %>
-	</div>
+			<div class="form-group">
+				<%= f.label "One line Summary" %><br />
+				<%= f.text_area :description, class: "form-control" %>
+			</div>
 
+			<div class="form-group">
+				<%= f.label "Full description" %><br />
+				<%= f.text_area :long_description, class: "form-control" %>
+			</div>
 
+		  <div class="form-group">
+		    <%= f.label :picture_url %><br />
+		    <%= f.text_field :picture_url, class: "form-control" %>
+		  </div>
+		  <h2>Rewards</h2>
 
-	<div class="field">
-		<%= f.label "One line Summary" %><br />
-		<%= f.text_area :description %>
-	</div>
+		  <div id="rewards">
 
-	<div class="field">
-		<%= f.label "Full description" %><br />
-		<%= f.text_area :long_description %>
-	</div>
+		  	<%= f.fields_for :rewards do |reward| %>
+		  		<%= render 'reward_fields', f: reward %>
+		  	<% end %>
 
-  <div class="field">
-    <%= f.label :picture_url %><br />
-    <%= f.text_field :picture_url %>
-  </div>
+		  	<div class="links">
+		  		<%= link_to_add_association 'Add Reward', f, :rewards %>
+		  	</div>
 
-  <h2>Rewards</h2>
+		  </div>
 
-  <div id="rewards">
+		  <div class="actions">
+		  	<%= f.submit %>
+		  </div>
 
-  	<%= f.fields_for :rewards do |reward| %>
-  		<%= render 'reward_fields', f: reward %>
-  	<% end %>
-
-  	<div class="links">
-  		<%= link_to_add_association 'Add Reward', f, :rewards %>
-  	</div>
-
-  </div>
-
-  <div class="actions">
-  	<%= f.submit "Update" %>
-  </div>
+    </fieldset>
+  </form>
+</section>
 
 <% end %>
+
+
+
+<% link_to 'Back', projects_path %>
