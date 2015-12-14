@@ -7,6 +7,7 @@ skip_before_action :require_login, only: [:index, :show, :login], notice: 'Pleas
 		@categories = ['Art','Comics', 'Crafts', 'Dance', 'Design', 'Fashion', 'Film & Video', 'Food', 'Games', 'Journalism', 'Music', 'Photography', 'Publishing', 'Technology', 'Theatre']
 	  params[:name] ||= @categories.sample
 
+
 		if params[:name]
 			@category_show = Project.order("created_at desc").find_by(category: params[:name])
 		end
@@ -18,16 +19,21 @@ skip_before_action :require_login, only: [:index, :show, :login], notice: 'Pleas
 		end
 			@random_projects = Project.random_project(3)
 
-		respond_to do |format|
+			respond_to do |format|
+				format.html do
+					if request.xhr?
+						if params[:project]
+								@projects = Project.all
+								render @projects
+						else
+								render(partial: "category", locals: {'@category_show': @category_show})
+						end
+					end
+				end
+			end
 
-			format.html do
-			if request.xhr?
-				render(partial: "category", locals: {'@category_show': @category_show})
-    	end
-    end
       # format.js
-    end
-	end
+  end
 
 	def show
 		@project = Project.find(params[:id])

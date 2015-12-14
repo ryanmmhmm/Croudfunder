@@ -9,7 +9,7 @@ $(document).on('ready page:load',function(){
 	$('.project-percent-pledge').each(function(index, element){
 		var percent_funded = $(element).data("percentage");
 		$(element).css("width", percent_funded + "%");
-	})
+	});
 
 	$('.category-display').click(function(event){
 		event.preventDefault();
@@ -21,6 +21,18 @@ $(document).on('ready page:load',function(){
 				$('#fuck-ryan').html(data)
 			},
 			dataType: "html"
+		});
+	});
+
+	$('.all-projects').click(function(event){
+		event.preventDefault();
+	$.ajax({
+		url: '/projects?project=all',
+		method: 'get',
+		success: function(data){
+			$('#portfolio').html(data)
+		},
+		dataType: "html"
 		});
 	});
 });
