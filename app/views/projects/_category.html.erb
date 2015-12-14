@@ -14,11 +14,21 @@
            <h5><%= link_to @category_show.title, project_path(@category_show) %></h5>
                 <h6><%= @category_show.description %></h6>
 
-                <div class='project-progress-bar'></div>
-                <div class="project-percent-pledge"></div>
+                <div class='project-progress-bar'>
+                    <div class="project-percent-pledge" data-percentage="<%= @category_show.percent_funded %>">
+                    </div>
+                </div>
+
+                <div>
+                    <h6><%= "#{@category_show.percent_funded.to_i}" + "%" %> funded </h6>
+                </div>
 
                 <h6><%= number_to_currency(@category_show.funding_goal) %></h6>
-                <h6><%= @category_show.days_left_message %></h6>
+                <% if @category_show.days_left == 1 %>
+                    <h6><%= @category_show.days_left %> day to go</h6>
+                <% else %>
+                    <h6><%= @category_show.days_left %> days to go</h6>
+        <% end %>
         </div>
         </li>
 
